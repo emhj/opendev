@@ -1,19 +1,22 @@
 CXX=g++
 CFLAGS=-g -Wall
 BUILDDIR=build
-EXE=$(BUILDDIR)/hello_world
+BINDIR=$(BUILDDIR)/bin
+OBJDIR=$(BUILDDIR)/obj
+EXE=$(BINDIR)/hello_world
 SOURCES=main.cpp
-OBJECTS=$(SOURCES:%.cpp=$(BUILDDIR)/%.o)
+OBJECTS=$(SOURCES:%.cpp=$(OBJDIR)/%.o)
+DIRS=$(BUILDDIR) $(BINDIR) $(OBJDIR)
 
 all: $(EXE)
 
-$(EXE): $(BUILDDIR) $(OBJECTS) Makefile
+$(EXE): $(DIRS) $(OBJECTS) Makefile
 	$(CXX) $(CLFAGS) -o $@ $(OBJECTS)
 
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
+$(DIRS):
+	mkdir -p $@
 
-$(BUILDDIR)/%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp
 	$(CXX) $(CLFAGS) -c -o $@ $<
 
 .PHONY: clean
