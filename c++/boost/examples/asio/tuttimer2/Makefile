@@ -1,21 +1,29 @@
 CXX=g++
 CFLAGS=-g -Wall
+
+INCLUDE_PATH=/usr/local/include
+INCLUDE_PATH_OBJS=$(INCLUDE_PATH:%=-I%)
+
 LIBS=boost_system pthread
+LIBRARY_PATH=/usr/local/lib
+LIBDIR_OBJS=$(LIBRARY_PATH:%=-L%)
+LIB_OBJS=$(LIBS:%=-l%)
+
+SOURCES=main.cpp
+OBJECTS=$(SOURCES:%.cpp=$(OBJDIR)/%.o)
+
 BUILDDIR=build
 BINDIR=$(BUILDDIR)/bin
 OBJDIR=$(BUILDDIR)/obj
 EXE=$(BINDIR)/boost_asio_tut_timer2
-SOURCES=main.cpp
-OBJECTS=$(SOURCES:%.cpp=$(OBJDIR)/%.o)
-LIBDIRS=/usr/local/share/boost_1_54_0/stage/lib
-LIBDIR_OBJS=$(LIBDIRS:%=-L%)
-LIB_OBJS=$(LIBS:%=-l%)
+
 DIRS=$(BUILDDIR) $(BINDIR) $(OBJDIR)
 
 all: $(EXE)
 
 $(EXE): $(DIRS) $(OBJECTS) Makefile
-	$(CXX) $(CFLAGS) -o $@ $(OBJECTS) $(LIBDIR_OBJS) $(LIB_OBJS)
+	$(CXX) $(CFLAGS) $(INCLUDE_PATH_OBJS) \
+         $(LIBDIR_OBJS) $(OBJECTS) $(LIB_OBJS) -o $@
 
 $(DIRS):
 	mkdir -p $@

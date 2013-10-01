@@ -10,10 +10,10 @@ The tutorial makes use of the boost::bind method to a member function.
 
 This code depends on libboost\_system and pthread.
 
-The included Makefile assumes that these libraries can be found in
-/usr/local/share/boost\_1\_54\_0/stage/lib.
+The included Makefile assumes that libboost\_system can be found in
+/usr/local/lib.
 
-To run the executable (build/bin/boost\_asio\_tut\_timer1), you must set the
-LD\_LIBRARY\_PATH to include /usr/local/share/boost\_1\_54\_0/stage/lib.
+To run the executable (build/bin/boost\_asio\_tut\_timer4), you must set the
+LD\_LIBRARY\_PATH to include /usr/local/lib.
 
   [1]: http://www.boost.org/doc/libs/1_54_0/doc/html/boost_asio/tutorial/tuttimer4.html
