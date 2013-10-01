@@ -15,13 +15,13 @@ DIRS=$(BUILDDIR) $(BINDIR) $(OBJDIR)
 all: $(EXE)
 
 $(EXE): $(DIRS) $(OBJECTS) Makefile
-	$(CXX) $(CLFAGS) -o $@ $(OBJECTS) $(LIBDIR_OBJS) $(LIB_OBJS)
+	$(CXX) $(CFLAGS) -o $@ $(OBJECTS) $(LIBDIR_OBJS) $(LIB_OBJS)
 
 $(DIRS):
 	mkdir -p $@
 
 $(OBJDIR)/%.o: %.cpp
-	$(CXX) $(CLFAGS) -c -o $@ $<
+	$(CXX) $(CFLAGS) -c -o $@ $<
 
 .PHONY: clean
 
