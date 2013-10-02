@@ -15,7 +15,7 @@ OBJECTS=$(SOURCES:%.cpp=$(OBJDIR)/%.o)
 BUILDDIR=build
 BINDIR=$(BUILDDIR)/bin
 OBJDIR=$(BUILDDIR)/obj
-EXE=$(BINDIR)/boost_asio_tut_daytime2_tcp_synch_server
+EXE=$(BINDIR)/boost_asio_tut_daytime2_tcp_sync_server
 
 DIRS=$(BUILDDIR) $(BINDIR) $(OBJDIR)
 
