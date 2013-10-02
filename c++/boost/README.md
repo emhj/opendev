@@ -14,8 +14,9 @@
 
 <pre>
 
-> ./bootstrap.sh
-> ./b2
+> ./bootstrap.sh --prefix=/usr/local
+> ./b2 stage threading=multi link=shared
+> ./b2 install
 
 </pre>
 
