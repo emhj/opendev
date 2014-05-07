@@ -18,5 +18,7 @@ be disabled with a <C-c> (Cntrl+c).
 ## QEMU Monitor
 
 The QEMU Monitor allows you access to the virtual machine's components
-directly.  The help menu can be display with <C-h>, and, if the Monitor is
-started on stdio, the console can be accessed with <C-c>.
+directly.  If the monitor is started on stdio, The help menu can be display
+with <C-h> and the console can be accessed with <C-c>.  If using QEMU monitor
+from a pseudoterminal (pty), then the <C-h> and <C-c> options are no longer
+needed.
